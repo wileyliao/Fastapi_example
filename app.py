@@ -1,12 +1,4 @@
 # app.py
-import warnings
-warnings.filterwarnings(
-    "ignore",
-    message=r"No ccache found\.",
-    module=r"paddle\.utils\.cpp_extension\.extension_utils",
-    category=UserWarning,
-)
-
 from fastapi import FastAPI, HTTPException, UploadFile, File, Request
 from pydantic import BaseModel
 from typing import List, Optional
@@ -117,4 +109,5 @@ async def image_receiver(
 
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=8000)
+
 
