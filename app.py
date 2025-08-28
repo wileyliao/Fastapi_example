@@ -50,13 +50,13 @@ def normalize_to_bgr(img: np.ndarray) -> np.ndarray:
 
     return img
 
-@app.get("/text_vision")
+@app.get("/your_endpoint")
 def health_check():
     logger.info("I am alive!!")
     # 你可以回傳固定訊息，也可以加邏輯檢查依賴元件有無異常
     return {"status": "ok"}
 
-@app.post("/text_vision")
+@app.post("/your_endpoint")
 async def image_receiver(
     request: Request,
     file: UploadFile | None = File(None),   # multipart 時才會有值
@@ -117,3 +117,4 @@ async def image_receiver(
 
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=8000)
+
