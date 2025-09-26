@@ -1,5 +1,5 @@
 # Fastapi_example
-For CV app entrance(in common use)
+For vision & sonic app entrance(in common use)
 
 ## 支援兩種輸入：
 - JSON
@@ -14,7 +14,7 @@ For CV app entrance(in common use)
 ```csharp
 using var client = new HttpClient();
 using var form = new MultipartFormDataContent();
-form.Add(new StreamContent(File.OpenRead("sample.jpg")), "file", "sample.jpg");
+form.Add(new StreamContent(File.OpenRead("sample.jpg | sample.wav")), "file", "sample.jpg | sample.wav");
 
 var resp = await client.PostAsync("url", form);
 Console.WriteLine(await resp.Content.ReadAsStringAsync());
